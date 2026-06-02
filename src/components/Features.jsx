@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Code, Zap, Layers, Smartphone, Sparkles } from 'lucide-react';
 
 const features = [
@@ -66,7 +67,11 @@ const Features = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div 
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 key={index} 
                 className={`group relative bg-white/[0.02] border border-white/5 backdrop-blur-xl p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2.5 ${feature.glowColor}`}
               >
@@ -86,7 +91,7 @@ const Features = () => {
                 <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

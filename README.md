@@ -52,10 +52,18 @@ Aether operates as an interconnected network of layout nodes. Below is the opera
                        ├─── [001] Header Node (Glassmorphism Frame / Responsive hamburger)
                        │
                        ├─── [002] Routing Switchboard
-                       │     ├─── Portal /      -> Home Module (Hero, Bento Grid, Showcase)
-                       │     ├─── Portal /about -> About Module (Metrics, Bio Matrix, Values)
-                       │     ├─── Portal /serv  -> Services Module (Tiers, Custom Build Specs)
-                       │     └─── Portal /cont  -> Contact Module (Vector Maps, Mail Channels)
+                       │     ├─── Portal /              -> Home Module (Hero, Bento Grid, Showcase)
+                       │     ├─── Portal /about         -> About Module (Metrics, Bio Matrix, Values)
+                       │     ├─── Portal /services      -> Services Module (WebGL, Design, Eng, SEO)
+                       │     ├─── Portal /contact       -> Contact Module (HQ Location, Form Terminal)
+                       │     ├─── Portal /portfolio     -> Portfolio Grid & Projects Showcase
+                       │     ├─── Portal /portfolio/:id -> Case Studies (Deep Dives, Results)
+                       │     ├─── Portal /pricing       -> Price Plans, Custom Dev Estimator
+                       │     ├─── Portal /privacy       -> Privacy Regulations Node
+                       │     ├─── Portal /terms         -> Service Terms Document
+                       │     ├─── Portal /cookies       -> Cookie Authorization & Control Panel
+                       │     ├─── Portal /sitemap       -> Index & Sitemap Directory
+                       │     └─── Portal * (fallback)   -> NotFound Page (Dynamic 404 Node)
                        │
                        ├─── [003] Rendering Array: Ray-Marched GPU Prism
                        │

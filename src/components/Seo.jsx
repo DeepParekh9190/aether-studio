@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { images } from "../assets/images";
 
 const Seo = ({ title, description, path }) => {
   const siteName = "Aether Studio";
@@ -9,7 +10,7 @@ const Seo = ({ title, description, path }) => {
     description ||
     "Aether Studio is a premium creative digital production studio. We blend WebGL 3D experiences, pixel-perfect design, and high-performance engineering for visionary brands.";
   const url = `https://aetherstudio.com${path || "/"}`;
-  const ogImage = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
+  const ogImage = images.bgAbstract;
 
   const jsonLd = {
     "@context": "https://schema.org",

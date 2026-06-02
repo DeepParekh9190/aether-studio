@@ -49,6 +49,7 @@ const Header = () => {
                 <Link
                   key={link.path}
                   to={link.path}
+                  aria-current={isActive ? "page" : undefined}
                   className={`text-sm font-medium transition-colors relative group ${
                     isActive ? 'text-white' : 'text-gray-400 hover:text-white'
                   }`}
@@ -60,7 +61,7 @@ const Header = () => {
                 </Link>
               );
             })}
-            <Link to="/contact" className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors inline-block">
+              <Link to="/contact" className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors inline-block">
               Get Started
             </Link>
           </nav>
@@ -92,6 +93,7 @@ const Header = () => {
             <Link
               key={link.path}
               to={link.path}
+              aria-current={isActive ? "page" : undefined}
               onClick={() => setIsMenuOpen(false)}
               className={`text-2xl font-semibold transition-colors ${
                 isActive ? 'text-blue-500' : 'text-white hover:text-blue-500'

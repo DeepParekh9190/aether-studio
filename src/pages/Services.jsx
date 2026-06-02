@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import { MonitorPlay, Palette, Rocket, Search, Sparkles } from 'lucide-react';
 import Cta from '../components/Cta';
+import { images } from "../assets/images";
+import FAQ from "../components/FAQ";
 
 const services = [
   {
@@ -11,7 +14,7 @@ const services = [
     glowColor: 'hover:shadow-[0_20px_50px_rgba(168,85,247,0.2)] hover:border-purple-500/20',
     iconColor: 'text-purple-400 group-hover:text-purple-300',
     iconBg: 'bg-purple-950/10 border-purple-500/10',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'
+    image: images.bgAbstract
   },
   {
     icon: Palette,
@@ -21,7 +24,7 @@ const services = [
     glowColor: 'hover:shadow-[0_20px_50px_rgba(236,72,153,0.2)] hover:border-pink-500/20',
     iconColor: 'text-pink-400 group-hover:text-pink-300',
     iconBg: 'bg-pink-950/10 border-pink-500/10',
-    image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80'
+    image: images.designCreative
   },
   {
     icon: Rocket,
@@ -31,7 +34,7 @@ const services = [
     glowColor: 'hover:shadow-[0_20px_50px_rgba(6,182,212,0.2)] hover:border-cyan-500/20',
     iconColor: 'text-cyan-400 group-hover:text-cyan-300',
     iconBg: 'bg-cyan-950/10 border-cyan-500/10',
-    image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=800&q=80'
+    image: images.engineeringCode
   },
   {
     icon: Search,
@@ -41,7 +44,7 @@ const services = [
     glowColor: 'hover:shadow-[0_20px_50px_rgba(59,130,246,0.2)] hover:border-blue-500/20',
     iconColor: 'text-blue-400 group-hover:text-blue-300',
     iconBg: 'bg-blue-950/10 border-blue-500/10',
-    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80'
+    image: images.seoAnalytics
   }
 ];
 
@@ -108,7 +111,11 @@ const Services = () => {
             const Icon = service.icon;
             const isEven = idx % 2 === 0;
             return (
-              <div 
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
                 key={idx} 
                 className={`group relative bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-12 lg:p-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center transition-all duration-700 backdrop-blur-2xl ${service.glowColor}`}
               >
@@ -157,7 +164,7 @@ const Services = () => {
                   {/* Inner overlay for nice shading */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -191,7 +198,14 @@ const Services = () => {
             <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
             
             {process.map((step, idx) => (
-              <div key={idx} className="relative z-10 group text-center md:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                key={idx}
+                className="relative z-10 group text-center md:text-left"
+              >
                 {/* Glowing step index bubble */}
                 <div className="w-16 h-16 rounded-full bg-black border border-cyan-500/30 flex items-center justify-center text-lg font-black text-cyan-400 mb-6 shadow-[0_0_20px_rgba(6,182,212,0.15)] mx-auto md:mx-0 group-hover:scale-105 group-hover:border-cyan-400 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all duration-300">
                   {step.step}
@@ -204,11 +218,14 @@ const Services = () => {
                 <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 group-hover:text-gray-300 transition-colors duration-300">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* Footer CTA */}
       <Cta />

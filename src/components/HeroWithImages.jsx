@@ -1,5 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { ArrowUpRight, Sparkles, Zap, ShieldCheck, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { images } from "../assets/images";
 
 const HeroWithImages = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -91,7 +93,13 @@ const HeroWithImages = () => {
           </div>
 
           {/* Grid Statistics */}
-          <div className="grid grid-cols-3 gap-6 w-full border-t border-white/5 pt-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="grid grid-cols-3 gap-6 w-full border-t border-white/5 pt-10"
+          >
             {stats.map((stat, idx) => {
               const Icon = stat.icon;
               return (
@@ -110,7 +118,7 @@ const HeroWithImages = () => {
                 </div>
               );
             })}
-          </div>
+          </motion.div>
 
         </div>
 
@@ -132,7 +140,7 @@ const HeroWithImages = () => {
               className="absolute left-0 top-8 sm:top-12 w-[90%] sm:w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl shadow-black/80"
             >
               <img 
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" 
+                src={images.bgAbstract} 
                 alt="Aether Studio — vibrant digital fluid abstract art background" 
                 fetchpriority="high"
                 className="w-full h-full object-cover opacity-60"
@@ -162,7 +170,7 @@ const HeroWithImages = () => {
               className="absolute right-0 top-1/4 sm:top-1/5 w-[60%] sm:w-[55%] aspect-[0.95] rounded-3xl overflow-hidden border border-white/10 bg-gray-900/60 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-sm"
             >
               <img 
-                src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" 
+                src={images.geoAbstract} 
                 alt="Aether Studio — 3D metallic abstract geometry render" 
                 loading="lazy"
                 className="w-full h-full object-cover opacity-80"

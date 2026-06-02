@@ -1,7 +1,45 @@
+import { useState } from "react";
 import Seo from "../components/Seo";
-import { Mail, MapPin, Phone, MessageSquare, Sparkles, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageSquare, Sparkles, Send, CheckCircle } from 'lucide-react';
+import { images } from "../assets/images";
 
 const Contact = () => {
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/xanwpwvo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState)
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setFormState({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection.');
+    }
+  };
+
   return (
     <div className="w-full pt-32 pb-24 bg-black min-h-screen">
       <Seo
@@ -54,9 +92,11 @@ const Contact = () => {
               
               {/* Image */}
               <img 
-                src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80" 
+                src={images.hqOffice} 
                 alt="Aether Studio headquarters — San Francisco creative innovation hub" 
                 loading="lazy"
+                width={800}
+                height={600}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
@@ -123,68 +163,95 @@ const Contact = () => {
               Send a Message
             </h3>
 
-            <form className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <CheckCircle size={64} className="text-emerald-400 mb-6" />
+                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                <p className="text-gray-400 max-w-sm">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="text-xs font-bold text-gray-500 uppercase tracking-wider">First Name</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      value={formState.firstName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
+                      placeholder="John"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Last Name</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      value={formState.lastName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs font-bold text-gray-500 uppercase tracking-wider">First Name</label>
+                  <label htmlFor="email" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Email Address</label>
                   <input 
-                    type="text" 
-                    id="name" 
+                    type="email" 
+                    id="email" 
+                    value={formState.email}
+                    onChange={handleChange}
+                    required
                     className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
-                    placeholder="John"
+                    placeholder="john@example.com"
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <label htmlFor="lastName" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Last Name</label>
+                  <label htmlFor="subject" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Subject</label>
                   <input 
                     type="text" 
-                    id="lastName" 
+                    id="subject" 
+                    value={formState.subject}
+                    onChange={handleChange}
+                    required
                     className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
-                    placeholder="Doe"
+                    placeholder="How can Aether help?"
                   />
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
-                  placeholder="john@example.com"
-                />
-              </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Message</label>
+                  <textarea 
+                    id="message" 
+                    rows={5}
+                    value={formState.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300 resize-none"
+                    placeholder="Tell us about your project or core strategy..."
+                  ></textarea>
+                </div>
 
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300"
-                  placeholder="How can Aether help?"
-                />
-              </div>
+                {error && (
+                  <p className="text-red-400 text-sm text-center">{error}</p>
+                )}
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-xs font-bold text-gray-500 uppercase tracking-wider">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={5}
-                  className="w-full bg-black/60 border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/10 transition-all duration-300 resize-none"
-                  placeholder="Tell us about your project or core strategy..."
-                ></textarea>
-              </div>
-
-              <button 
-                type="button" 
-                className="relative group overflow-hidden w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:shadow-[0_4px_30px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 mt-6 cursor-pointer"
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                <span className="relative flex items-center justify-center gap-2">
-                  Send Message <Send size={15} />
-                </span>
-              </button>
-            </form>
+                <button 
+                  type="submit" 
+                  className="relative group overflow-hidden w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:shadow-[0_4px_30px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 mt-6 cursor-pointer"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="relative flex items-center justify-center gap-2">
+                    Send Message <Send size={15} />
+                  </span>
+                </button>
+              </form>
+            )}
           </div>
 
         </div>

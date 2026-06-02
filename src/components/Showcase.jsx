@@ -1,31 +1,7 @@
+import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'Aero Dynamics',
-    category: 'E-Commerce Platform',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-    color: 'from-blue-600 to-cyan-400',
-    stats: { label: 'Speed Score', value: '100%' },
-    delay: '0ms'
-  },
-  {
-    title: 'Neon Financial',
-    category: 'Fintech Dashboard',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    color: 'from-purple-600 to-pink-500',
-    stats: { label: 'Conversion Lift', value: '+240%' },
-    delay: '100ms'
-  },
-  {
-    title: 'Lumina Studio',
-    category: 'Creative Portfolio',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80',
-    color: 'from-amber-400 to-orange-500',
-    stats: { label: 'SEO Authority', value: '99/100' },
-    delay: '200ms'
-  }
-];
+import projects from '../data/projects';
 
 const Showcase = () => {
   return (
@@ -52,17 +28,24 @@ const Showcase = () => {
             </p>
           </div>
           
-          <button className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 font-semibold transition-all group pb-2 border-b border-white/10 hover:border-cyan-500/50 cursor-pointer">
+          <Link to="/portfolio" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 font-semibold transition-all group pb-2 border-b border-white/10 hover:border-cyan-500/50">
             View All Projects
             <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          </Link>
         </div>
 
         {/* Premium Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
+          {projects.slice(0, 3).map((project, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={index}
+            >
+            <Link
+              to={`/portfolio/${project.id}`}
               className="group relative rounded-3xl overflow-hidden cursor-pointer aspect-[4/5] bg-gray-950 border border-white/5 hover:border-cyan-500/30 hover:shadow-[0_20px_50px_rgba(6,182,212,0.15)] transition-all duration-700"
             >
               {/* Background Portfolio Image */}
@@ -101,7 +84,8 @@ const Showcase = () => {
                   {project.title}
                 </h3>
               </div>
-            </div>
+            </Link>
+            </motion.div>
           ))}
         </div>
       </div>

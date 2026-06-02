@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, MessageSquare } from 'lucide-react';
 
 const Cta = () => {
@@ -8,7 +9,12 @@ const Cta = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="group relative bg-[#050505]/60 border border-white/5 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] p-8 sm:p-12 md:p-24 text-center overflow-hidden shadow-2xl hover:border-blue-500/20 transition-all duration-700">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="group relative bg-[#050505]/60 border border-white/5 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] p-8 sm:p-12 md:p-24 text-center overflow-hidden shadow-2xl hover:border-blue-500/20 transition-all duration-700">
           
           {/* Inner Light Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[250px] bg-gradient-to-b from-blue-500/10 to-transparent blur-3xl pointer-events-none"></div>
@@ -56,7 +62,7 @@ const Cta = () => {
             Average Response Time: <span className="font-bold text-gray-300">Under 2 Hours</span>
           </div>
           
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,8 @@
+import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import { Users, Target, Zap, Heart, Sparkles } from 'lucide-react';
+import { images } from "../assets/images";
+import Testimonials from "../components/Testimonials";
 
 const stats = [
   { label: 'Projects Delivered', value: '150+', color: 'from-blue-400 to-cyan-400' },
@@ -43,17 +46,17 @@ const team = [
   {
     name: 'Alex Rivera',
     role: 'Founder & Creative Director',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
+    image: images.teamAlex
   },
   {
     name: 'Sarah Chen',
     role: 'Lead WebGL Engineer',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80'
+    image: images.teamSarah
   },
   {
     name: 'Marcus Johnson',
     role: 'Head of Product Design',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80'
+    image: images.teamMarcus
   }
 ];
 
@@ -102,7 +105,7 @@ const About = () => {
               {/* Back Card: Studio Workspace */}
               <div className="absolute left-0 top-4 sm:top-6 w-[88%] sm:w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl hover:border-cyan-500/20 transition-all duration-500">
                 <img 
-                  src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" 
+                  src={images.studioWorkspace} 
                   alt="Aether Studio creative workspace — modern design studio environment" 
                   loading="lazy"
                   className="w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
@@ -113,7 +116,7 @@ const About = () => {
               {/* Front Overlapping Card: High-Tech Analytics Grid */}
               <div className="absolute right-0 bottom-4 sm:bottom-6 w-[65%] sm:w-[60%] aspect-[1] rounded-2xl overflow-hidden border border-white/10 bg-black/80 p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
                 <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
+                  src={images.dashboardAnalytics} 
                   alt="Aether Studio — real-time system analytics and performance dashboard" 
                   loading="lazy"
                   className="w-full h-full object-cover opacity-35 rounded-lg mb-3"
@@ -131,7 +134,13 @@ const About = () => {
       </section>
 
       {/* Stats Section (Styled as custom dashboard cell blocks) */}
-      <section className="py-16 md:py-20 mb-20 md:mb-32 relative overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-16 md:py-20 mb-20 md:mb-32 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-[#030303]/60 border-y border-white/5 backdrop-blur-md"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -149,7 +158,7 @@ const About = () => {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Values Section */}
       <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-36">
@@ -173,7 +182,11 @@ const About = () => {
           {values.map((value, idx) => {
             const Icon = value.icon;
             return (
-              <div 
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 key={idx} 
                 className={`group relative bg-white/[0.01] border border-white/5 backdrop-blur-xl p-8 rounded-[2rem] flex flex-col sm:flex-row gap-6 transition-all duration-500 hover:-translate-y-1.5 ${value.glowColor}`}
               >
@@ -193,11 +206,14 @@ const About = () => {
                     {value.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Team Section */}
       <section className="max-w-7xl mx-auto px-6">
@@ -219,7 +235,14 @@ const About = () => {
         {/* Team Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
           {team.map((member, idx) => (
-            <div key={idx} className="group cursor-pointer">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              key={idx}
+              className="group cursor-pointer"
+            >
               {/* Profile Image Wrap */}
               <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-gray-950 border border-white/5 group-hover:border-cyan-500/30 group-hover:shadow-[0_20px_50px_rgba(6,182,212,0.15)] transition-all duration-500">
                 <img 
@@ -246,7 +269,7 @@ const About = () => {
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 text-sm font-semibold uppercase tracking-wider">
                 {member.role.split(' & ')[0]}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
