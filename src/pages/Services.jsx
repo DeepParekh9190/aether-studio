@@ -1,3 +1,4 @@
+import Seo from "../components/Seo";
 import { MonitorPlay, Palette, Rocket, Search, Sparkles } from 'lucide-react';
 import Cta from '../components/Cta';
 
@@ -70,9 +71,14 @@ const process = [
 const Services = () => {
   return (
     <div className="w-full pt-32 pb-0 bg-black min-h-screen">
+      <Seo
+        path="/services"
+        title="Services — WebGL Development & Digital Engineering"
+        description="From award-winning WebGL 3D experiences to high-performance web engineering and technical SEO — Aether Studio delivers capabilities that drive results."
+      />
       
       {/* Services Hero */}
-      <section className="max-w-7xl mx-auto px-6 mb-32 text-center relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-32 text-center relative overflow-hidden">
         {/* Spotlights */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none"></div>
         
@@ -83,7 +89,7 @@ const Services = () => {
         </div>
 
         {/* Gradient Title */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
+        <h1 className="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
           Capabilities that <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 filter drop-shadow-[0_2px_8px_rgba(59,130,246,0.25)]">
             drive results.
@@ -96,7 +102,7 @@ const Services = () => {
       </section>
 
       {/* Detailed Services */}
-      <section className="max-w-7xl mx-auto px-6 mb-36">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-36">
         <div className="space-y-16">
           {services.map((service, idx) => {
             const Icon = service.icon;
@@ -139,7 +145,7 @@ const Services = () => {
                 </div>
 
                 {/* Right/Image Column - lg:col-span-5 */}
-                <div className={`lg:col-span-5 relative z-10 w-full h-full min-h-[300px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl group-hover:border-white/20 transition-all duration-500 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div className={`lg:col-span-5 relative z-10 w-full h-full min-h-[200px] sm:min-h-[300px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl group-hover:border-white/20 transition-all duration-500 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                   {/* Subtle Neon Glow behind image */}
                   <div className="absolute -inset-10 opacity-30 group-hover:opacity-50 blur-[50px] transition-all duration-700 pointer-events-none rounded-full"></div>
                   {/* Image itself with scale hover */}
@@ -158,13 +164,13 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="border-t border-white/5 bg-[#030303]/60 backdrop-blur-md py-36 relative overflow-hidden">
+      <section className="border-t border-white/5 bg-[#030303]/60 backdrop-blur-md py-20 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           
           {/* Header */}
-          <div className="mb-24 text-center">
+          <div className="mb-16 md:mb-24 text-center">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full border border-white/5 bg-white/5 text-xs font-semibold uppercase tracking-wider text-cyan-400">
               <Sparkles size={11} />
               Our Flow
@@ -180,7 +186,7 @@ const Services = () => {
           </div>
           
           {/* Roadmap Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 relative">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
             

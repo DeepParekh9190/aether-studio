@@ -2,13 +2,13 @@ import { ArrowUpRight, Sparkles, MessageSquare } from 'lucide-react';
 
 const Cta = () => {
   return (
-    <section className="py-36 relative overflow-hidden bg-black">
+    <section className="py-20 md:py-36 relative overflow-hidden bg-black">
       {/* Dynamic Background Spotlight Rings */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="group relative bg-[#050505]/60 border border-white/5 backdrop-blur-2xl rounded-[3rem] p-12 md:p-24 text-center overflow-hidden shadow-2xl hover:border-blue-500/20 transition-all duration-700">
+          <div className="group relative bg-[#050505]/60 border border-white/5 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] p-8 sm:p-12 md:p-24 text-center overflow-hidden shadow-2xl hover:border-blue-500/20 transition-all duration-700">
           
           {/* Inner Light Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[250px] bg-gradient-to-b from-blue-500/10 to-transparent blur-3xl pointer-events-none"></div>
@@ -20,7 +20,7 @@ const Cta = () => {
           </div>
 
           {/* Premium Gradient Headline */}
-          <h2 className="text-4xl md:text-7xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
+          <h2 className="text-3xl sm:text-4xl md:text-7xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
             Ready to build the <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 filter drop-shadow-[0_2px_8px_rgba(59,130,246,0.2)]">
               extraordinary?

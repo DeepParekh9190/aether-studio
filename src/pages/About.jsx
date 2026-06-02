@@ -1,3 +1,4 @@
+import Seo from "../components/Seo";
 import { Users, Target, Zap, Heart, Sparkles } from 'lucide-react';
 
 const stats = [
@@ -59,9 +60,14 @@ const team = [
 const About = () => {
   return (
     <div className="w-full pt-32 pb-24 bg-black min-h-screen">
+      <Seo
+        path="/about"
+        title="About — WebGL Engineering & Design Team"
+        description="Meet Aether Studio — a creative digital production collective pushing the limits of modern browser capability with WebGL, premium design, and scalable engineering."
+      />
       
       {/* About Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-32 relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-32 relative overflow-hidden">
         {/* Dynamic Backglow spotlights */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -76,7 +82,7 @@ const About = () => {
             </div>
 
             {/* Premium Gradient Headline */}
-            <h1 className="text-5xl sm:text-7xl lg:text-[4.5rem] font-black text-white mb-8 tracking-tight leading-[1.05] selection:bg-blue-500/30">
+            <h1 className="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-[4.5rem] font-black text-white mb-8 tracking-tight leading-[1.05] selection:bg-blue-500/30">
               We build the <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 filter drop-shadow-[0_2px_8px_rgba(59,130,246,0.25)]">
                 impossible.
@@ -90,24 +96,26 @@ const About = () => {
           </div>
 
           {/* Right Column: Layered Collage */}
-          <div className="lg:col-span-5 relative w-full h-[400px] flex items-center justify-center pointer-events-none select-none">
+          <div className="lg:col-span-5 relative w-full h-[300px] sm:h-[400px] flex items-center justify-center pointer-events-none select-none">
             {/* Collage Container */}
             <div className="relative w-full h-full max-w-[400px]">
               {/* Back Card: Studio Workspace */}
-              <div className="absolute left-0 top-6 w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl hover:border-cyan-500/20 transition-all duration-500">
+              <div className="absolute left-0 top-4 sm:top-6 w-[88%] sm:w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl hover:border-cyan-500/20 transition-all duration-500">
                 <img 
                   src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" 
-                  alt="Aether Workspace" 
+                  alt="Aether Studio creative workspace — modern design studio environment" 
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
               </div>
 
               {/* Front Overlapping Card: High-Tech Analytics Grid */}
-              <div className="absolute right-0 bottom-6 w-[60%] aspect-[1] rounded-2xl overflow-hidden border border-white/10 bg-black/80 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
+              <div className="absolute right-0 bottom-4 sm:bottom-6 w-[65%] sm:w-[60%] aspect-[1] rounded-2xl overflow-hidden border border-white/10 bg-black/80 p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
-                  alt="System Analytics" 
+                  alt="Aether Studio — real-time system analytics and performance dashboard" 
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-35 rounded-lg mb-3"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-950/20 to-transparent pointer-events-none"></div>
@@ -123,7 +131,7 @@ const About = () => {
       </section>
 
       {/* Stats Section (Styled as custom dashboard cell blocks) */}
-      <section className="py-20 mb-32 relative overflow-hidden">
+      <section className="py-16 md:py-20 mb-20 md:mb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#030303]/60 border-y border-white/5 backdrop-blur-md"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -144,8 +152,8 @@ const About = () => {
       </section>
 
       {/* Our Values Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-36">
-        <div className="mb-20">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-36">
+        <div className="mb-14 md:mb-20">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full border border-white/5 bg-white/5 text-xs font-semibold uppercase tracking-wider text-cyan-400">
             <Sparkles size={11} />
             Our Beliefs
@@ -161,7 +169,7 @@ const About = () => {
         </div>
 
         {/* Grid matching the features system */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {values.map((value, idx) => {
             const Icon = value.icon;
             return (
@@ -193,7 +201,7 @@ const About = () => {
 
       {/* Team Section */}
       <section className="max-w-7xl mx-auto px-6">
-        <div className="mb-20">
+        <div className="mb-14 md:mb-20">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full border border-white/5 bg-white/5 text-xs font-semibold uppercase tracking-wider text-purple-400">
             <Sparkles size={11} />
             Creative Minds
@@ -209,7 +217,7 @@ const About = () => {
         </div>
 
         {/* Team Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
           {team.map((member, idx) => (
             <div key={idx} className="group cursor-pointer">
               {/* Profile Image Wrap */}

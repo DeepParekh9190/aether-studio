@@ -37,7 +37,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-32 bg-[#020202] relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-[#020202] relative overflow-hidden">
       {/* Dynamic Background Spotlights */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/3 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -45,14 +45,14 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Modern Centered Header */}
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full border border-white/5 bg-white/5 text-xs font-semibold uppercase tracking-wider text-blue-400">
             <Sparkles size={11} />
             Our Expertise
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1] selection:bg-blue-500/30">
-            Supercharged capabilities <br />
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1] selection:bg-blue-500/30">
+            Supercharged capabilities <br className="hidden sm:block" />
             to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500">elevate your vision.</span>
           </h2>
           
@@ -62,7 +62,7 @@ const Features = () => {
         </div>
 
         {/* Responsive Premium Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (

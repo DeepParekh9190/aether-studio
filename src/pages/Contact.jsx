@@ -1,11 +1,17 @@
+import Seo from "../components/Seo";
 import { Mail, MapPin, Phone, MessageSquare, Sparkles, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
     <div className="w-full pt-32 pb-24 bg-black min-h-screen">
+      <Seo
+        path="/contact"
+        title="Contact — Start Your Project with Aether Studio"
+        description="Ready to build something extraordinary? Contact Aether Studio to discuss your WebGL development, design, or engineering project. Average response time: under 2 hours."
+      />
       
       {/* Contact Hero */}
-      <section className="max-w-7xl mx-auto px-6 mb-24 text-center relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-6 mb-16 md:mb-24 text-center relative overflow-hidden">
         {/* Spotlight backgrounds */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -16,7 +22,7 @@ const Contact = () => {
         </div>
 
         {/* Gradient Title */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
+        <h1 className="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 relative z-10 tracking-tight leading-[1.05] selection:bg-blue-500/30">
           Let's start a <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 filter drop-shadow-[0_2px_8px_rgba(59,130,246,0.25)]">
             conversation.
@@ -49,7 +55,8 @@ const Contact = () => {
               {/* Image */}
               <img 
                 src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80" 
-                alt="Aether SF Labs Studio Headquarters" 
+                alt="Aether Studio headquarters — San Francisco creative innovation hub" 
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
@@ -105,7 +112,7 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Premium Contact Form */}
-          <div className="lg:col-span-7 bg-[#050505]/60 border border-white/5 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden backdrop-blur-2xl shadow-2xl hover:border-blue-500/10 transition-all duration-700">
+          <div className="lg:col-span-7 bg-[#050505]/60 border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 relative overflow-hidden backdrop-blur-2xl shadow-2xl hover:border-blue-500/10 transition-all duration-700">
             {/* Spotlights */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"></div>
             

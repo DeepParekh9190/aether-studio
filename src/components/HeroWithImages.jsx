@@ -63,7 +63,7 @@ const HeroWithImages = () => {
           </div>
           
           {/* Premium Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-[5.2rem] font-black tracking-tight text-white mb-6 leading-[1.05] selection:bg-blue-500/30">
+          <h1 className="text-[2.5rem] sm:text-6xl lg:text-[5.2rem] font-black tracking-tight text-white mb-6 leading-[1.05] selection:bg-blue-500/30">
             We shape the <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 filter drop-shadow-[0_2px_10px_rgba(59,130,246,0.2)]">
               digital future
@@ -115,7 +115,7 @@ const HeroWithImages = () => {
         </div>
 
         {/* Right Column: 3D Asymmetric Parallax Collage */}
-        <div className="lg:col-span-6 relative w-full h-[550px] sm:h-[650px] flex items-center justify-center pointer-events-none select-none">
+        <div className="lg:col-span-6 relative w-full h-[400px] sm:h-[500px] lg:h-[650px] flex items-center justify-center pointer-events-none select-none">
           
           {/* Glow Behind Collage */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
@@ -129,17 +129,18 @@ const HeroWithImages = () => {
                 transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 12}px, 0px) rotateX(${mousePos.y * -4}deg) rotateY(${mousePos.x * 4}deg)`,
                 transition: isHovered ? "none" : "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
               }}
-              className="absolute left-0 top-12 w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl shadow-black/80"
+              className="absolute left-0 top-8 sm:top-12 w-[90%] sm:w-[85%] aspect-[1.1] rounded-3xl overflow-hidden border border-white/5 bg-gray-950/40 shadow-2xl shadow-black/80"
             >
               <img 
                 src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" 
-                alt="Digital Fluid Art" 
+                alt="Aether Studio — vibrant digital fluid abstract art background" 
+                fetchpriority="high"
                 className="w-full h-full object-cover opacity-60"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               
               {/* Overlay Mockup UI Elements */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-md flex justify-between items-center">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-xl bg-black/60 border border-white/10 backdrop-blur-md flex justify-between items-center">
                 <div>
                   <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">Aether Labs</p>
                   <p className="text-sm font-bold text-white">Fluidic Engine v3</p>
@@ -158,17 +159,18 @@ const HeroWithImages = () => {
                 transform: `translate3d(${mousePos.x * -22}px, ${mousePos.y * -22}px, 0px) rotateX(${mousePos.y * 6}deg) rotateY(${mousePos.x * -6}deg)`,
                 transition: isHovered ? "none" : "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
               }}
-              className="absolute right-0 top-1/5 w-[55%] aspect-[0.95] rounded-3xl overflow-hidden border border-white/10 bg-gray-900/60 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-sm"
+              className="absolute right-0 top-1/4 sm:top-1/5 w-[60%] sm:w-[55%] aspect-[0.95] rounded-3xl overflow-hidden border border-white/10 bg-gray-900/60 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-sm"
             >
               <img 
                 src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" 
-                alt="3D Metallic Geometry" 
+                alt="Aether Studio — 3D metallic abstract geometry render" 
+                loading="lazy"
                 className="w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent mix-blend-color-add"></div>
               
               {/* Glass Tag */}
-              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
                 <span className="text-[9px] font-bold text-purple-400 uppercase tracking-widest">3D Render</span>
               </div>
             </div>
@@ -179,9 +181,9 @@ const HeroWithImages = () => {
                 transform: `translate3d(${mousePos.x * 32}px, ${mousePos.y * 32}px, 0px) rotateX(${mousePos.y * -8}deg) rotateY(${mousePos.x * 8}deg)`,
                 transition: isHovered ? "none" : "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
               }}
-              className="absolute left-6 bottom-16 w-[48%] rounded-2xl border border-white/15 bg-black/80 p-5 shadow-[0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+              className="absolute left-4 sm:left-6 bottom-12 sm:bottom-16 w-[52%] sm:w-[48%] rounded-2xl border border-white/15 bg-black/80 p-4 sm:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl"
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
                   <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">System Hub</span>
@@ -189,7 +191,7 @@ const HeroWithImages = () => {
                 <span className="text-[10px] text-emerald-400 font-mono font-bold">100% Core</span>
               </div>
               
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {/* Metric 1 */}
                 <div>
                   <div className="flex justify-between text-[11px] font-medium text-gray-300 mb-1">

@@ -29,21 +29,21 @@ const projects = [
 
 const Showcase = () => {
   return (
-    <section className="py-32 bg-black relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-4/5 h-[400px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Aesthetic Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full border border-white/5 bg-white/5 text-xs font-semibold uppercase tracking-wider text-cyan-400">
               <Sparkles size={11} />
               Case Studies
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1] selection:bg-blue-500/30">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1] selection:bg-blue-500/30">
               Selected Works
             </h2>
             
@@ -59,7 +59,7 @@ const Showcase = () => {
         </div>
 
         {/* Premium Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {projects.map((project, index) => (
             <div 
               key={index} 
