@@ -17,6 +17,12 @@
 </p>
 
 <p align="center">
+  <a href="https://aether-studio-kappa.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-aether--studio--kappa.vercel.app-00FFCC?style=for-the-badge&logo=vercel&logoColor=black" alt="Live Demo Link" />
+  </a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/CORE_ENGINE-React_19.0-blue?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/SHADING_PIPELINE-WebGL_OGL-FFB6C1?style=flat-square&logo=webgl&logoColor=white" alt="WebGL OGL" />
   <img src="https://img.shields.io/badge/GRID_UTILITY-Tailwind_v4.0-38BDF8?style=flat-square&logo=tailwind-css&logoColor=white" alt="Tailwind" />

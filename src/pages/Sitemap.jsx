@@ -50,7 +50,7 @@ const Sitemap = () => {
                     <Link to={link.path} className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
                       {link.label}
                     </Link>
-                    <p className="text-gray-600 text-xs mt-0.5">https://aetherstudio.com{link.path}</p>
+                    <p className="text-gray-600 text-xs mt-0.5">https://aether-studio-kappa.vercel.app{link.path}</p>
                   </li>
                 ))}
               </ul>

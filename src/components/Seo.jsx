@@ -9,7 +9,7 @@ const Seo = ({ title, description, path }) => {
   const desc =
     description ||
     "Aether Studio is a premium creative digital production studio. We blend WebGL 3D experiences, pixel-perfect design, and high-performance engineering for visionary brands.";
-  const url = `https://aetherstudio.com${path || "/"}`;
+  const url = `https://aether-studio-kappa.vercel.app${path || "/"}`;
   const ogImage = images.bgAbstract;
 
   const jsonLd = {
@@ -18,8 +18,8 @@ const Seo = ({ title, description, path }) => {
       {
         "@type": "Organization",
         name: siteName,
-        url: "https://aetherstudio.com",
-        logo: "https://aetherstudio.com/vite.svg",
+        url: "https://aether-studio-kappa.vercel.app",
+        logo: "https://aether-studio-kappa.vercel.app/favicon.svg",
         description: desc,
         foundingDate: "2018",
         sameAs: [
@@ -47,7 +47,7 @@ const Seo = ({ title, description, path }) => {
       {
         "@type": "WebSite",
         name: siteName,
-        url: "https://aetherstudio.com",
+        url: "https://aether-studio-kappa.vercel.app",
         description: desc,
         inLanguage: "en",
       },
